@@ -1,18 +1,32 @@
 public class Main {
     public static void main(String[] args) {
 
-        //Thread 1
-        for (int i = 0; i < 10 ; i++) {
-            System.out.println("a");
-        }
-        
-        //Thread 2
-        for (int i = 0; i < 10 ; i++) {
-            System.out.println("a");
-        }
+
+        new Thread(()->{
+            for (int i = 0; i < 10 ; i++) {
+                System.out.print("a ");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
+        new Thread(()->{
+            for (int i = 0; i < 10 ; i++) {
+                System.out.print("b ");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
 
 
-        System.out.println("main end!");
 
     }
 }
