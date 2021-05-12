@@ -1,30 +1,25 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Main {
+
     public static void main(String[] args) {
 
+        WaitingThreading obj =
+                new WaitingThreading();
+
+        WaitingThreading obj1 =
+                new WaitingThreading();
 
         new Thread(()->{
-            for (int i = 0; i < 10 ; i++) {
-                System.out.print("a ");
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
+            obj.get();
         }).start();
 
         new Thread(()->{
-            for (int i = 0; i < 10 ; i++) {
-                System.out.print("b ");
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
+            obj1.add();
         }).start();
+
+
 
 
 
